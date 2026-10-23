@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Dashboard de control – Auditorías CBC</title>
+<script src="dc-lite.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>x-dc{display:none}</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1679B8}a:hover{color:#0E4F7A}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #F4F6F8; color: #111827; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px">
+
+  <header style="background: #FFFFFF; color: #3E4C5E; padding: 0 32px">
+    <div style="max-width: 1376px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <img src="cbc-logo.png" alt="CBC Perú" style="height: 36px; width: auto"><span aria-hidden="true" style="width: 1px; height: 32px; background: #D1D5DB"></span>
+        <div style="display: flex; flex-direction: column">
+          <span style="font-weight: 600; font-size: 15px">Auditorías CBC</span>
+          <span style="font-size: 12px; color: #4B5563">Canal Tradicional · 11 sedes · operado por TT Audit</span>
+        </div>
+      </div>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 4px">
+        <a href="#" style="color: #FFFFFF; background: #3E4C5E; padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 500">Dashboard</a>
+        <a href="#" style="color: #374151; padding: 10px 14px; border-radius: 8px; text-decoration: none">Rutas</a>
+        <a href="visita.html" style="color: #374151; padding: 10px 14px; border-radius: 8px; text-decoration: none">Visitas</a>
+        <a href="#" style="color: #374151; padding: 10px 14px; border-radius: 8px; text-decoration: none">Auditores</a>
+        <a href="#" style="color: #374151; padding: 10px 14px; border-radius: 8px; text-decoration: none">Maestro PDV</a>
+        <a href="#" style="color: #374151; padding: 10px 14px; border-radius: 8px; text-decoration: none">Reportes</a>
+        <a href="app.html" style="color: #374151; padding: 10px 14px; border-radius: 8px; text-decoration: none">App auditor</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <span style="font-size: 12px; color: #4B5563">Vista: Cliente CBC</span>
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #7B4FA0; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">CL</div>
+      </div>
+    </div>
+  </header>
+  <div aria-hidden="true" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); height: 4px"><div style="background: #7B4FA0"></div><div style="background: #F08A24"></div><div style="background: #7DBE45"></div><div style="background: #2E9BD6"></div><div style="background: #F5C518"></div></div>
+
+  <main style="max-width: 1376px; margin: 0 auto; padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 24px">
+
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-size: 26px; font-weight: 700">Control diario de auditorías</h1>
+        <p style="margin: 0; color: #4B5563">Jueves 22 oct 2026 · actualizado 15:42 · <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; background: #FEF3C7; color: #78350F; padding: 2px 6px; border-radius: 4px">DATOS ILUSTRATIVOS</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5563">Fecha
+          <select style="height: 44px; padding: 0 12px; border: 1px solid #D1D5DB; border-radius: 8px; background: #FFFFFF; font: inherit; font-size: 14px; color: #111827"><option>Hoy</option><option>Esta semana</option><option>Este mes</option></select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5563">Sede
+          <select style="height: 44px; padding: 0 12px; border: 1px solid #D1D5DB; border-radius: 8px; background: #FFFFFF; font: inherit; font-size: 14px; color: #111827"><option>Todas (11)</option><option>Lima (4)</option><option>Sur Chico</option><option>Norte</option></select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5563">Auditor
+          <select style="height: 44px; padding: 0 12px; border: 1px solid #D1D5DB; border-radius: 8px; background: #FFFFFF; font: inherit; font-size: 14px; color: #111827"><option>Todos</option></select>
+        </label>
+        <button type="button" style="height: 44px; align-self: flex-end; padding: 0 18px; border: 0; border-radius: 8px; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600; cursor: pointer">Exportar Excel</button>
+      </div>
+    </div>
+
+    <section aria-label="Indicadores principales" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #4B5563">PDV auditados hoy</span>
+        <span style="font-size: 30px; font-weight: 700">100 <span style="font-size: 16px; color: #6B7280; font-weight: 500">/ 121</span></span>
+        <span style="font-size: 12px; color: #4B5563">Meta: 11 PDV × 11 auditores</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #4B5563">Cumplimiento de ruta</span>
+        <span style="font-size: 30px; font-weight: 700">82.6%</span>
+        <div style="height: 8px; background: #E5E7EB; border-radius: 4px"><div style="width: 82.6%; height: 8px; background: {{accent}}; border-radius: 4px"></div></div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #4B5563">Visitas válidas</span>
+        <span style="font-size: 30px; font-weight: 700">96%</span>
+        <span style="font-size: 12px; color: #4B5563">GPS en geocerca + fotos completas</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #4B5563">Auditores en campo</span>
+        <span style="font-size: 30px; font-weight: 700">10 <span style="font-size: 16px; color: #6B7280; font-weight: 500">/ 11</span></span>
+        <span style="font-size: 12px; color: #9A3412; font-weight: 500">1 sin marcación de ingreso</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #4B5563">Tiempo prom. por visita</span>
+        <span style="font-size: 30px; font-weight: 700">24 min</span>
+        <span style="font-size: 12px; color: #4B5563">Traslado prom. 18 min (moto)</span>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+      <section aria-labelledby="t-sedes" style="flex: 999 1 640px; min-width: 0; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+          <h2 id="t-sedes" style="margin: 0; font-size: 17px; font-weight: 600">Avance por sede</h2>
+          <span style="font-size: 12px; color: #4B5563">Jornada 9:00 – 18:00</span>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; border-collapse: collapse; min-width: 640px">
+            <thead>
+              <tr style="text-align: left; font-size: 12px; color: #4B5563; border-bottom: 1px solid #E5E7EB">
+                <th style="padding: 10px 8px; font-weight: 500">Sede</th>
+                <th style="padding: 10px 8px; font-weight: 500">Auditor</th>
+                <th style="padding: 10px 8px; font-weight: 500">Ingreso</th>
+                <th style="padding: 10px 8px; font-weight: 500">PDV</th>
+                <th style="padding: 10px 8px; font-weight: 500; width: 160px">Avance</th>
+                <th style="padding: 10px 8px; font-weight: 500">Fotos</th>
+                <th style="padding: 10px 8px; font-weight: 500">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template data-for="sedes" data-as="s">
+                <tr style="border-bottom: 1px solid #F1F5F9">
+                  <td style="padding: 11px 8px; font-weight: 600">{{s.sede}}</td>
+                  <td style="padding: 11px 8px; color: #374151">{{s.auditor}}</td>
+                  <td style="padding: 11px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px">{{s.ingreso}}</td>
+                  <td style="padding: 11px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px">{{s.pdvTxt}}</td>
+                  <td style="padding: 11px 8px">
+                    <div style="height: 8px; background: #E5E7EB; border-radius: 4px"><div style="{{s.barStyle}}"></div></div>
+                  </td>
+                  <td style="padding: 11px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px">{{s.fotos}}</td>
+                  <td style="padding: 11px 8px"><span style="{{s.badgeStyle}}">{{s.estado}}</span></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+        <section aria-labelledby="t-alertas" style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+          <h2 id="t-alertas" style="margin: 0; font-size: 17px; font-weight: 600">Alertas operativas</h2>
+          <div style="display: flex; gap: 12px; padding: 12px; background: #FFF7ED; border-radius: 8px">
+            <span style="font-weight: 700; color: #9A3412; font-family: 'IBM Plex Mono', monospace">10:15</span>
+            <span style="color: #431407">Tumbes: auditor sin marcación de ingreso a la hora pactada.</span>
+          </div>
+          <div style="display: flex; gap: 12px; padding: 12px; background: #FFF7ED; border-radius: 8px">
+            <span style="font-weight: 700; color: #9A3412; font-family: 'IBM Plex Mono', monospace">13:02</span>
+            <span style="color: #431407">Talara: 2 visitas de menos de 5 min (posible visita no válida).</span>
+          </div>
+          <div style="display: flex; gap: 12px; padding: 12px; background: #F1F5F9; border-radius: 8px">
+            <span style="font-weight: 700; color: #334155; font-family: 'IBM Plex Mono', monospace">14:40</span>
+            <span style="color: #1F2937">Lima Norte: 1 check-in fuera de geocerca (120 m). Pendiente de validar.</span>
+          </div>
+          <div style="display: flex; gap: 12px; padding: 12px; background: #F1F5F9; border-radius: 8px">
+            <span style="font-weight: 700; color: #334155; font-family: 'IBM Plex Mono', monospace">15:10</span>
+            <span style="color: #1F2937">Huacho: 3 PDV cerrados reportados como no efectivos con foto de fachada.</span>
+          </div>
+        </section>
+
+        <section aria-labelledby="t-ind" style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <h2 id="t-ind" style="margin: 0; font-size: 17px; font-weight: 600">Cumplimiento por indicador</h2>
+            <span style="font-size: 12px; color: #4B5563">% de PDV auditados que cumplen · indicadores a confirmar con CBC</span>
+          </div>
+          <template data-for="indicadores" data-as="i">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <div style="display: flex; justify-content: space-between; font-size: 13px"><span>{{i.nombre}}</span><span style="font-family: 'IBM Plex Mono', monospace; font-weight: 500">{{i.pct}}%</span></div>
+              <div style="height: 8px; background: #E5E7EB; border-radius: 4px"><div style="{{i.barStyle}}"></div></div>
+            </div>
+          </template>
+        </section>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+      <section aria-labelledby="t-mapa" style="flex: 1 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px">
+          <h2 id="t-mapa" style="margin: 0; font-size: 17px; font-weight: 600">Mapa GPS en vivo</h2>
+          <div style="display: flex; gap: 14px; font-size: 12px; color: #374151">
+            <span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 50%; background: {{accent}}"></span>Auditado</span>
+            <span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; border: 1px solid #64748B"></span>Pendiente</span>
+            <span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E8731C"></span>Alerta</span>
+          </div>
+        </div>
+        <div style="height: 300px; border-radius: 10px; background: #E2E8F0; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 13px; text-align: center; padding: 16px">[Mapa: ubicación de auditores + PDV del día, ruta recorrida y geocercas por PDV]</div>
+      </section>
+
+      <section aria-labelledby="t-feed" style="flex: 1 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <h2 id="t-feed" style="margin: 0; font-size: 17px; font-weight: 600">Últimas visitas</h2>
+          <a href="visita.html" style="font-size: 13px; font-weight: 500">Ver todas</a>
+        </div>
+        <template data-for="visitas" data-as="v">
+          <a href="visita.html" style="display: flex; gap: 14px; align-items: center; padding: 10px; border: 1px solid #F1F5F9; border-radius: 10px; text-decoration: none; color: #111827">
+            <div style="width: 64px; height: 48px; border-radius: 6px; background: #CBD5E1; flex: none; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #334155">FOTO</div>
+            <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-weight: 600">{{v.pdv}}</span>
+              <span style="font-size: 12px; color: #4B5563">{{v.detalle}}</span>
+            </div>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500">{{v.score}}</span>
+          </a>
+        </template>
+      </section>
+    </div>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1679B8","options":["#1679B8","#0F766E","#B91C1C","#111827"]},"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const accent = this.props.accent ?? '#1679B8';
+    const raw = [
+      ['Lima Metro','Auditor 01','08:52',12,'48/48','ok'],
+      ['Lima Este','Auditor 02','08:57',10,'40/40','ruta'],
+      ['Lima Norte','Auditor 03','09:04',8,'31/32','alerta'],
+      ['Lima Sur','Auditor 04','08:49',11,'44/44','ok'],
+      ['Chincha','Auditor 05','08:55',9,'36/36','ruta'],
+      ['Ica','Auditor 06','08:58',11,'44/44','ok'],
+      ['Huacho','Auditor 07','09:10',7,'28/28','ruta'],
+      ['Trujillo','Auditor 08','08:50',11,'44/44','ok'],
+      ['Piura','Auditor 09','08:59',10,'40/40','ruta'],
+      ['Talara','Auditor 10','09:01',6,'22/24','alerta'],
+      ['Tumbes','Auditor 11','10:38',5,'20/20','alerta']
+    ];
+    const badge = {
+      ok: ['Ruta completa','background:#DCEFFA;color:#0E4F7A'],
+      ruta: ['En ruta','background:#F1F5F9;color:#334155'],
+      alerta: ['Revisar','background:#FFEDD5;color:#9A3412']
+    };
+    const sedes = raw.map(r => {
+      const pct = Math.min(100, Math.round(r[3] / 11 * 100));
+      const b = badge[r[5]];
+      return {
+        sede: r[0], auditor: r[1], ingreso: r[2], pdvTxt: r[3] + ' / 11', fotos: r[4],
+        estado: b[0],
+        badgeStyle: b[1] + ';padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap',
+        barStyle: 'width:' + pct + '%;height:8px;border-radius:4px;background:' + (r[5] === 'alerta' ? '#E8731C' : accent)
+      };
+    });
+    const ind = [
+      ['Disponibilidad portafolio core', 78],
+      ['Precio al público vs. sugerido', 64],
+      ['Material POP visible', 71],
+      ['Enfriador operativo', 88],
+      ['Pureza de enfriador', 59],
+      ['Sin quiebre de stock', 82]
+    ];
+    const indicadores = ind.map(x => ({ nombre: x[0], pct: x[1], barStyle: 'width:' + x[1] + '%;height:8px;border-radius:4px;background:' + (x[1] < 65 ? '#E8731C' : accent) }));
+    const visitas = [
+      { pdv: 'Bodega Don Lucho · Lima Sur', detalle: 'Auditor 04 · 15:31 · 26 min · 4 fotos', score: '86%' },
+      { pdv: 'Minimarket Rosita · Trujillo', detalle: 'Auditor 08 · 15:22 · 21 min · 4 fotos', score: '72%' },
+      { pdv: 'Bodega El Paisa · Ica', detalle: 'Auditor 06 · 15:14 · 19 min · 4 fotos', score: '91%' },
+      { pdv: 'Comercial Sánchez · Piura', detalle: 'Auditor 09 · 15:05 · 28 min · 3 fotos', score: '58%' }
+    ];
+    return { accent, sedes, indicadores, visitas };
+  }
+}
+</script>
+</body>
+</html>
